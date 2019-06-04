@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <p>This example uses the addEventListener() method to execute a function when a user clicks anywhere in the document.</p>
+
+    <p id="demo"></p>
+
+    <script>
+      document.addEventListener("click", myFunction);
+
+      function myFunction() {
+        document.getElementById("demo").innerHTML = "Hello World";
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,63 @@
+Microsoft (R) Macro Assembler Version 6.14.8444		    12/09/18 19:36:01
+LAB7PROC.asm						     Page 1 - 1
+
+
+				.386
+				.model flat, stdcall
+				option casemap: none
+ 00000000			.data
+					public denominator
+					extrn ARRAY_D:QWORD, ARRAY_A:QWORD
+ 00000000			.code
+ 00000000			denominator proc
+ 00000000  DD 04 F5			fld ARRAY_D[esi * 8]					
+	   00000000 E
+ 00000007  DD 04 F5			fld ARRAY_A[esi * 8]					; ST(1) <- d, ST(0) <- a
+	   00000000 E
+ 0000000E  DE E9			fsub									; ST(0) <- d - a
+ 00000010  D9 E8			fld1									; ST(1) <- d - a, ST(0) <- 1
+ 00000012  DE E9			fsub									; ST(0) <- d - a - 1
+ 00000014  C3				ret
+ 00000015			denominator endp
+				end
+
+Microsoft (R) Macro Assembler Version 6.14.8444		    12/09/18 19:36:01
+LAB7PROC.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000015 DWord	  Public  'CODE'	
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+denominator  . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000015 Public STDCALL
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+ARRAY_A  . . . . . . . . . . . .	QWord	 00000000 FLAT	External STDCALL
+ARRAY_D  . . . . . . . . . . . .	QWord	 00000000 FLAT	External STDCALL
+
+	   0 Warnings
+	   0 Errors
